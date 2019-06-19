@@ -21,6 +21,9 @@
     "color-thief": "^2.2.5",
     "get-image-colors": "^2.0.0",
     "lodash": "^4.17.11",
-    "rgb-hex": "^3.0.0"
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "rgb-hex": "^3.0.0",
+    "url": "^0.11.0"
   }
 }

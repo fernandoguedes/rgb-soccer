@@ -1,28 +1,27 @@
 const path = require('path')
-const getColors = require('get-image-colors')
 const fs = require('fs')
-const rgbHex = require('rgb-hex')
-const ColorThief = require('color-thief')
-const colorThief = new ColorThief()
+const request = require('request-promise')
+const url = require('url')
 
-const getColorsByColorThief = (image) => {
-  let rgbs = colorThief.getPalette(fs.readFileSync(image))
-  return rgbs.map(rgb => rgbHex(rgb.join(',')))
-}
+const makeRequest = async (data) => {
+  const options = {
+      uri: 'http://localhost:8080',
+    method: 'POST',
+    body: { image: data },
+    json: true
+  }
 
-const getColorsByGetColors = async (image) => {
-  let rgbs = await getColors(image)
-  return rgbs.map(color => color.hex().replace('#',''))
+  try {
+    console.log(await request(options))
+  } catch (error) {
+     console.log(error)
+  }
 }
 
 const getImageColors = async () => {
-  const badge = path.join(__dirname, 'badges/atletico-pr.png')
-  let colorsByColorThief = getColorsByColorThief(badge)
-  let colorsByGetColors = await getColorsByGetColors(badge)
-
-
-  let predominantColors = colorsByColorThief.filter(val => colorsByGetColors.includes(val))
-  console.log(predominantColors)
+  let badge = path.join(__dirname, 'badges/atletico-pr.png')
+  let file = fs.readFileSync(badge, 'base64') 
+  await makeRequest(file) 
 }
 
 module.exports = getImageColors
