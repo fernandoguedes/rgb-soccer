@@ -1,0 +1,29 @@
+{
+  "name": "rgb-soccer",
+  "version": "1.0.0",
+  "description": ":soccer:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fernandoguedes/rgb-soccer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fernandoguedes/rgb-soccer/issues"
+  },
+  "homepage": "https://github.com/fernandoguedes/rgb-soccer#readme",
+  "dependencies": {
+    "color-thief": "^2.2.5",
+    "get-image-colors": "^2.0.0",
+    "lodash": "^4.17.11",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
+    "rgb-hex": "^3.0.0",
+    "url": "^0.11.0"
+  }
+}
